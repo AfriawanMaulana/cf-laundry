@@ -1,103 +1,128 @@
+"use client"
+import MarqueeComponent from "@/components/Marquee";
+import { Navbar, Footer } from "@/components/Navbar";
 import Image from "next/image";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { motion } from "motion/react";
+import Services from "@/components/Services";
 
 export default function Home() {
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="overflow-x-hidden">
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/*  */}
+      <section className="bg-primary w-full h-screen flex px-14 items-center relative">
+        <motion.div
+          initial={{ opacity: 0, y: 100}}
+          whileInView={{ opacity: 1, y: 0}}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+          className="flex flex-col gap-4 w-full lg:w-[45%] z-10">
+          <h1 className="font-semibold text-4xl lg:text-6xl text-dark-green w-full">Laundry Bersih, Cepat, dan Tepat Waktu!</h1>
+          <button className="bg-lime px-4 py-2 rounded-md text-white font-semibold w-40">Pesan Sekarang</button>
+        </motion.div>
+        <motion.img
+          initial={{ opacity: 0, y: 100}}
+          whileInView={{ opacity: 1, y: 0}}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
+          src={"/images/icon-01.png"} 
+          alt={"icon-01"} 
+          width={550} 
+          height={550} 
+          className="w-full lg:w-1/2 object-contain bottom-1 absolute right-0 lg:right-52" 
+        />
+        <div className="absolute top-4 right-4 bg-white/50 p-20 w-52 rounded-t-2xl rounded-br-2xl rounded-bl-[200px]"></div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="p-14 flex flex-col lg:flex-row justify-between items-center">
+        <div className="w-full text-center md:text-start md:w-[50%]">
+          <motion.h1
+            initial={{ opacity: 0, y: 10}}
+            whileInView={{ opacity: 1, y: 0}}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+            className="text-3xl font-bold text-dark-green mb-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              Why Choose Us
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 50}}
+            whileInView={{ opacity: 1, y: 0}}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
           >
-            Read our docs
-          </a>
+            <p>Pelayanan yang sangat memuaskan!</p>
+            <p>Pakaian anda akan selalu bersih dan wangi.</p>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="mt-10">
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <motion.li 
+              initial={{ opacity: 0, scale: 0}}
+              whileInView={{ opacity: 1, scale: 1}}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+              className="bg-primary rounded-xl p-4 h-52 text-center"
+            >
+              <Image src={"/icons/icon-delivery.png"} alt={"icon-delivery"} width={70} height={70} className="mx-auto mb-4" />
+              <h1 className="font-semibold text-dark-green text-xl">Antar Jemput</h1>
+              <p className="text-sm text-gray-700 italic">Kami siap menjemput dan mengantar cucian Anda langsung ke rumah.</p>
+            </motion.li>
+            <motion.li 
+              initial={{ opacity: 0, scale: 0}}
+              whileInView={{ opacity: 1, scale: 1}}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
+              className="bg-primary rounded-xl p-4 h-52 text-center">
+              <Image src={"/icons/icon-laundry.png"} alt={"icon-laundry"} width={70} height={70} className="mx-auto mb-4" />
+              <h1 className="font-semibold text-dark-green text-xl">Proses Cepat</h1>
+              <p className="text-sm text-gray-700 italic">Pengerjaan cepat tanpa mengurangi kualitas kebersihan.</p>
+            </motion.li>
+            <motion.li 
+              initial={{ opacity: 0, scale: 0}}
+              whileInView={{ opacity: 1, scale: 1}}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+              className="bg-primary rounded-xl p-4 h-52 text-center">
+              <Image src={"/icons/icon-dolar.png"} alt={"icon-dolar"} width={70} height={70} className="mx-auto mb-4" />
+              <h1 className="font-semibold text-dark-green text-xl">Harga Terjangkau</h1>
+              <p className="text-sm text-gray-700 italic">Layanan berkualitas denan harga bersahabat.</p>
+            </motion.li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Our Services */}
+    <Services />
+
+      {/* Discount */}
+      {/* <section>
+        <div className="mx-16">
+          <Image src={"/images/discount.png"} alt={"discount"} width={300} height={300} className="animate-pulse" />
+        </div>
+      </section> */}
+
+      {/* Reviews */}
+      <section>
+        <motion.h1 
+          initial={{ opacity: 0, y: 100}}
+          whileInView={{ opacity: 1, y: 0}}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+          className="font-bold text-3xl text-center text-dark-green"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Customer Testimonial
+        </motion.h1>
+        <MarqueeComponent />
+      </section>
+      
+
+      <WhatsAppButton />
+      <Footer />
     </div>
-  );
+  )
 }
